@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>经纬度位置</title> 
+</head>
+<body>
+<p id="demo">经纬度位置</p>
+<button onclick="getLocation()">定位</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+{
+	if (navigator.geolocation)
+	{
+		navigator.geolocation.getCurrentPosition(showPosition);
+	}
+	else
+	{
+		x.innerHTML="¸Ãä¯ÀÀÆ÷²»Ö§³Ö»ñÈ¡µØÀíÎ»ÖÃ¡£";
+	}
+}
+
+function showPosition(position)
+{
+	x.innerHTML="纬度: " + position.coords.latitude + 
+	"经度: " + position.coords.longitude;	
+}
+</script>
+</body>
+</html>
